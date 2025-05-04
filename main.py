@@ -21,3 +21,8 @@ app.include_router(tasks.router)
 app.include_router(budget.router)
 app.include_router(links.router)
 app.include_router(info.router)
+from fastapi.responses import JSONResponse
+
+@app.get("/")
+def read_root():
+    return JSONResponse(content={"message": "WeddingPlanner Backend is running!"})
